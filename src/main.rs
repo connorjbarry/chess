@@ -33,7 +33,7 @@ fn board_setup(mut commands: Commands) {
                     custom_size: Some(Vec2::new(square_size as f32, square_size as f32)),
                     ..default()
                 },
-                transform: Transform::from_translation(Vec3::new((x * square_size - 200) as f32, (y * square_size - 200) as f32, 0.0)),
+                transform: Transform::from_translation(Vec3::new((x * square_size - 200) as f32, (y * square_size - 150) as f32, 0.0)),
                 ..Default::default()
             });
         }
