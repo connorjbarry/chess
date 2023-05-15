@@ -4,7 +4,7 @@ fn main() {
     App::new()
     .add_plugins(DefaultPlugins.set(WindowPlugin {
         primary_window: Some(Window {
-            title: "Chess".to_string().into(),
+            title: "Chess".to_string(),
             resolution: (800., 800.).into(),
             ..Default::default()
         }),
