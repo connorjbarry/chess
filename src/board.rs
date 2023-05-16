@@ -1,9 +1,9 @@
 use bevy::prelude::*;
 
-pub struct Board {}
+pub struct BoardSetup {}
 
-impl Board {
-    pub fn board_setup(mut commands: Commands) {
+impl BoardSetup {
+    pub fn setup(mut commands: Commands) {
         commands.spawn(Camera2dBundle::default());
     
         let square_size = 50;
