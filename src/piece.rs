@@ -1,29 +1,29 @@
 pub struct Piece {
-    pub None: u32,
-    pub Pawn: u32,
-    pub Knight: u32,
-    pub Bishop: u32,
-    pub Rook: u32,
-    pub Queen: u32,
-    pub King: u32,
+    pub none: u32,
+    pub pawn: u32,
+    pub knight: u32,
+    pub bishop: u32,
+    pub rook: u32,
+    pub queen: u32,
+    pub king: u32,
 
-    pub White: u32,
-    pub Black: u32,
+    pub white: u32,
+    pub black: u32,
 }
 
-impl Piece {
-    fn new() -> Piece {
+impl Default for Piece {
+    fn default() -> Piece {
         Piece {
-            None: 0,
-            King: 1,
-            Pawn: 2,
-            Knight: 3,
-            Bishop: 4,
-            Rook: 5,
-            Queen: 6,
+            none: 0,
+            king: 1,
+            pawn: 2,
+            knight: 3,
+            bishop: 4,
+            rook: 5,
+            queen: 6,
 
-            White: 8,
-            Black: 16,
+            white: 8,
+            black: 16,
         }
     }
 }

@@ -1,9 +1,14 @@
 use bevy::prelude::*;
+use crate::fen::{get_board_from_fen, STARTING_FEN};
 
 pub struct BoardSetup {}
 
+pub struct Board {
+    pub squares: Vec<u32>,
+}
+
 impl BoardSetup {
-    pub fn setup(mut commands: Commands) {
+    pub fn setup_squares(mut commands: Commands) {
         commands.spawn(Camera2dBundle::default());
     
         let square_size = 50;
@@ -26,6 +31,22 @@ impl BoardSetup {
                     ..Default::default()
                 });
             }
+        }
+    }
+
+    pub fn setup_piece(mut commands: Commands, asset_server: Res<AssetServer>) {
+        commands.spawn(Camera2dBundle::default());
+    }
+}
+
+
+impl Board {
+    pub fn new(&mut self) -> Board {
+        // we will initialize the array from fen notation
+        self.squares = get_board_from_fen(STARTING_FEN);
+
+        Board {
+            squares: self.squares.clone(),
         }
     }
 }

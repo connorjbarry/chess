@@ -1,6 +1,8 @@
 mod board;
-use crate::board::BoardSetup;
+mod piece;
+mod fen;
 
+use crate::board::{BoardSetup, Board};
 use bevy::prelude::*;
 
 fn main() {
@@ -21,6 +23,6 @@ pub struct BoardPlugin;
 
 impl Plugin for BoardPlugin {
     fn build(&self, app: &mut App) {
-        app.add_startup_system(BoardSetup::setup);
+        app.add_startup_system(BoardSetup::setup_squares);
     }
 }
