@@ -1,5 +1,8 @@
+use std::collections::HashMap;
+
 use bevy::prelude::*;
 use crate::fen::{get_board_from_fen, STARTING_FEN};
+use crate::piece::Piece;
 
 pub struct BoardSetup {}
 
@@ -35,6 +38,21 @@ impl BoardSetup {
     }
 
     pub fn setup_piece(mut commands: Commands, asset_server: Res<AssetServer>) {
+        let piece = Piece::default();
+        let pieceToImageMap = HashMap::from([
+            (piece.white | piece.pawn, "wp.png"),
+            (piece.white | piece.knight, "wN.png"),
+            (piece.white | piece.bishop, "wB.png"),
+            (piece.white | piece.rook, "wR.png"),
+            (piece.white | piece.queen, "wQ.png"),
+            (piece.white | piece.king, "wK.png"),
+            (piece.black | piece.pawn, "bp.png"),
+            (piece.black | piece.knight, "bN.png"),
+            (piece.black | piece.bishop, "bB.png"),
+            (piece.black | piece.rook, "bR.png"),
+            (piece.black | piece.queen, "bQ.png"),
+            (piece.black | piece.king, "bK.png"),
+        ]);
         commands.spawn(Camera2dBundle::default());
     }
 }
