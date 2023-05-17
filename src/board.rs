@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
-use bevy::prelude::*;
 use crate::fen::{get_board_from_fen, STARTING_FEN};
 use crate::piece::Piece;
+use bevy::prelude::*;
 
 pub struct BoardSetup {}
 
@@ -13,26 +13,27 @@ pub struct Board {
 impl BoardSetup {
     pub fn setup_squares(mut commands: Commands) {
         commands.spawn(Camera2dBundle::default());
-    for i in 0..8 {
-        for j in 0..8 {
-            let color = if (i + j) % 2 == 0 {
-                Color::WHITE
-            } else {
-                Color::BLACK
-            };
-            commands.spawn(SpriteBundle {
-                sprite: Sprite {
-                    color,
-                    custom_size: Some(Vec2::new(75.0, 75.0)),
+        for i in 0..8 {
+            for j in 0..8 {
+                let color = if (i + j) % 2 == 0 {
+                    Color::WHITE
+                } else {
+                    Color::BLACK
+                };
+                commands.spawn(SpriteBundle {
+                    sprite: Sprite {
+                        color,
+                        custom_size: Some(Vec2::new(75.0, 75.0)),
+                        ..default()
+                    },
+                    transform: Transform::from_translation(Vec3::new(
+                        -300. + (j as f32) * 75., // -300
+                        300. - (i as f32) * 75.,  // 300
+                        0.,
+                    )),
                     ..default()
-                },
-                transform: Transform::from_translation(Vec3::new(
-                    -300. + (j as f32) * 75., // -300
-                    300. - (i as f32) * 75.,  // 300
-                    0.,
-                )),
-                ..default()
-            });
+                });
+            }
         }
     }
 
@@ -55,7 +56,6 @@ impl BoardSetup {
         commands.spawn(Camera2dBundle::default());
     }
 }
-
 
 impl Board {
     pub fn new(&mut self) -> Board {
