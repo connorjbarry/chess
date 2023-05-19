@@ -60,10 +60,11 @@ impl BoardSetup {
 impl Board {
     pub fn new(&mut self) -> Board {
         // we will initialize the array from fen notation
-        self.squares = get_board_from_fen(STARTING_FEN);
+
+        let squares = get_board_from_fen(STARTING_FEN);
 
         Board {
-            squares: self.squares.clone(),
+            squares: squares.clone(),
         }
     }
 }
