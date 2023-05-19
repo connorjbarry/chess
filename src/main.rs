@@ -1,8 +1,8 @@
-mod board;
-mod piece;
-mod fen;
+pub mod board;
+pub mod piece;
+pub mod fen;
 
-use crate::board::{BoardSetup, Board};
+use crate::board::{BoardSetup};
 use bevy::prelude::*;
 
 fn main() {
